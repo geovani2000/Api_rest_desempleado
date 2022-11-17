@@ -15,6 +15,17 @@ const obtenerDatos = async (req,res)=>{
     
 }
 
+// Extrae un dato de base de datos
+const obtenerUnDato = async (req,res)=>{
+    try {
+        const {id} = req.params;
+        const [datos] = await conex.query('SELECT* FROM empleo WHERE id = ?',[id]);
+        res.send(datos);
+    } catch (error) {
+        return res.send("Ocurrio un error")
+    }
+    
+}
 
 // crea un nuevo dato
 const creaEmpleo = async (req,res)=>{
@@ -70,6 +81,7 @@ const eliminaDato =async (req,res)=>{
 
 // Aqui este apartado son todas las rutas que utilizaremos para consultar api
 rutas.get('/empleo',obtenerDatos);
+rutas.get('/empleo/:id',obtenerUnDato);
 rutas.post('/empleo',creaEmpleo)
 rutas.patch('/empleo/:id',actulizaDato)
 rutas.delete('/empleo/:id',eliminaDato)
