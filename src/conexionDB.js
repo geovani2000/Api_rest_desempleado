@@ -4,9 +4,9 @@ import { createPool } from "mysql2/promise"
 import {HOST,USER,PASS,DB_PORT,DATABASE} from "./config.js"
 
 export const conex = createPool({
-    host: HOST,
+    host:HOST,
     user:USER,
     password:PASS,
-    port: DB_PORT,
+    port:DB_PORT,
     database:DATABASE
 })
