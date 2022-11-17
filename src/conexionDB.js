@@ -1,17 +1,12 @@
 import { createPool } from "mysql2/promise"
-import { 
-    DBHOST,
-    DBUSER,
-    DBPASS,
-    DBPORT,
-    DBDATABASE
- } from "./config"
 // hacemos la conexion de base de datos y la exportamos para ser usada en otros codigos
 
+import {HOST,USER,PASS,DB_PORT,DATABASE} from "./config.js"
+
 export const conex = createPool({
-    host: DBHOST,
-    user: DBUSER,
-    password: DBPASS,
-    port: DBPORT,
-    database: DBDATABASE
+    host: HOST,
+    user:USER,
+    password:PASS,
+    port: DB_PORT,
+    database:DATABASE
 })
